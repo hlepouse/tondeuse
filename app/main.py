@@ -44,7 +44,7 @@ for fname in os.listdir(APP_DIRECTORY + '/' + SD_PROFILE_NAME + '/' + 'Profiles'
                           
         PROFILES[letter][interval] = fname
 
-# print(PROFILES)
+print(PROFILES)
 
 app = Flask(__name__)
 
@@ -72,8 +72,9 @@ def modify_json(d, letter, number, name, url):
             if 'sourceURL' in b['Settings']:
                 b['Settings']['sourceURL'] = url
             if 'imageFileName' in b['Settings']:
-                parts = b['Settings']['imageFileName'].split('Afro')
-                b['Settings']['imageFileName'] = parts[0] + name + parts[1]
+                parts = b['Settings']['imageFileName'].split('/')
+                parts[-1] = name + '.png'
+                b['Settings']['imageFileName'] = '/'.join(parts)
 
 
 @app.route('/', methods=['GET', 'POST'])

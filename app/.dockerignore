@@ -1,0 +1,12 @@
+Dockerfile
+Dockerfile.debug
+README.md
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+.dockerignore
+*.html
+.DS_Store
+.baba.tmp
